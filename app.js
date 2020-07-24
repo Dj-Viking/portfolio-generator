@@ -34,8 +34,8 @@
 //
 // if only one parameter in the arrow function can remove parenthesis
 // no curly braces means implicit return value of the function
-const doubler = num => num * 2;
-console.log(doubler(2));
+// const doubler = num => num * 2;
+// console.log(doubler(2));
 
 
 //const printProfileData = profileDataArr =>/*console.log(profileDataArr);*///semicolon for declaring function expression
@@ -97,22 +97,42 @@ console.log(doubler(2));
     // console.log(four); // prints 'four: inside the block', because we didn't redeclare the variable inside the block. That meant we referenced the variable outside the block, and we therefore changed it.
 
 
+    
+
+
+
+
+    
+    
+    
+    
 //slicing the first two arguments in the process object off as
 //  to not display them in the console when logging the process.argv's 
 const profileDataArgs = process.argv.slice(2, process.argv.length);
+
+console.log("logging just the array of arguments we want")
 console.log(profileDataArgs);
 
-
-
-
-
 //more than one line will need curly brackets
-const printProfileData = profileDataArr => {
+console.log("logging the for loop of each item in the data array")
+const printProfileData1 = profileDataArr => {
     for (let i = 0; i < profileDataArr.length; i += 1) {
         //print the content inside the array
         console.log(profileDataArr[i]);
     }
 }
 
-printProfileData(profileDataArgs);
+printProfileData1(profileDataArgs);
 
+/*** EXPLAINING FOREACH LOOP ********** */
+
+console.log("===================");
+console.log("logging the forEach loop, for each item in the data array do a function")
+const printProfileData2 = profileDataArr => {
+    profileDataArr.forEach(profileItem => {
+        console.log(profileItem);
+    });
+};
+
+
+printProfileData2(profileDataArgs);
