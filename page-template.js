@@ -1,7 +1,7 @@
 
 const generatePage = (user, githubName) => {
     /* line break */return `
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="en">
     <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@ const generatePage = (user, githubName) => {
     <h1>${user}</h1>
     <h2><a href="https://github.com/${githubName}">Github</a></h2>
     </body>
-    </html>
+</html>
     `;/* line break */
 };
 
