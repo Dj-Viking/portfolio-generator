@@ -108,32 +108,68 @@
     
 //slicing the first two arguments in the process object off as
 //  to not display them in the console when logging the process.argv's 
+//const profileDataArgs = process.argv.slice(2, process.argv.length);
+
+// console.log("logging just the array of arguments we want");
+// console.log(profileDataArgs);
+
+// //more than one line will need curly brackets
+// console.log("logging the for loop of each item in the data array no functions used against the items in the array")
+// const printProfileData1 = profileDataArr => {
+//     for (let i = 0; i < profileDataArr.length; i += 1) {
+//         //print the content inside the array
+//         console.log(profileDataArr[i]);
+//     }
+// };
+
+// printProfileData1(profileDataArgs);
+
+// /*** EXPLAINING FOREACH LOOP ********** */
+
+// console.log("===================");
+// console.log("logging the forEach loop, for each item in the data array do a function")
+// const printProfileData2 = profileDataArr => {
+//     console.log(profileDataArr);
+//     profileDataArr.forEach(profileItem => {
+//         console.log(profileItem);
+//     });
+// };
+
+
+// printProfileData2(profileDataArgs);
+
+
+
+//arguments into a function using template literals
+// const generatePage = (userName, githubName) => `Name: ${userName}, Github: ${githubName}`;
+
+// console.log(generatePage('Anders', "dj-viking"));
+
+
+//multi line strings using return ` (backtick) 
+
 const profileDataArgs = process.argv.slice(2, process.argv.length);
 
-console.log("logging just the array of arguments we want");
-console.log(profileDataArgs);
+//declaring const name is type: never
+//  i think name is part of a namespace of another global object within the runtime engine?
 
-//more than one line will need curly brackets
-console.log("logging the for loop of each item in the data array no functions used against the items in the array")
-const printProfileData1 = profileDataArr => {
-    for (let i = 0; i < profileDataArr.length; i += 1) {
-        //print the content inside the array
-        console.log(profileDataArr[i]);
-    }
+
+// const userName = profileDataArgs[0];
+// const github = profileDataArgs[1];
+
+//or we can do assignment destructuring
+
+const [userName, github] = profileDataArgs;
+
+// const name = "name";
+// name + userName; 
+
+const generatePage = (userName, githubName) => {
+    /* line break */return `
+        Name: ${userName}
+        GitHub: ${githubName} 
+        `;/* line break */
 };
 
-printProfileData1(profileDataArgs);
+console.log(generatePage(userName, github));
 
-/*** EXPLAINING FOREACH LOOP ********** */
-
-console.log("===================");
-console.log("logging the forEach loop, for each item in the data array do a function")
-const printProfileData2 = profileDataArr => {
-    console.log(profileDataArr);
-    profileDataArr.forEach(profileItem => {
-        console.log(profileItem);
-    });
-};
-
-
-printProfileData2(profileDataArgs);
