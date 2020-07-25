@@ -110,17 +110,17 @@
 //  to not display them in the console when logging the process.argv's 
 const profileDataArgs = process.argv.slice(2, process.argv.length);
 
-console.log("logging just the array of arguments we want")
+console.log("logging just the array of arguments we want");
 console.log(profileDataArgs);
 
 //more than one line will need curly brackets
-console.log("logging the for loop of each item in the data array")
+console.log("logging the for loop of each item in the data array no functions used against the items in the array")
 const printProfileData1 = profileDataArr => {
     for (let i = 0; i < profileDataArr.length; i += 1) {
         //print the content inside the array
         console.log(profileDataArr[i]);
     }
-}
+};
 
 printProfileData1(profileDataArgs);
 
@@ -129,6 +129,7 @@ printProfileData1(profileDataArgs);
 console.log("===================");
 console.log("logging the forEach loop, for each item in the data array do a function")
 const printProfileData2 = profileDataArr => {
+    console.log(profileDataArr);
     profileDataArr.forEach(profileItem => {
         console.log(profileItem);
     });
