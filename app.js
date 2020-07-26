@@ -274,6 +274,8 @@ Add a New Project
 promptUser()
     //when promptUser async func is done then return the answers from
     //the promise object
+    //this .then() isn't entirely necessary to pass the object into promptProject()
+    //  but I still like to have it for the sake of seeing every step happening for now
     .then(answers => {//the answers define what is contained in portfolioData
         console.log(answers);
         return answers;
