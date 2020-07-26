@@ -165,6 +165,8 @@
 //require the file system inside built in node js modules
 const fs = require('fs');
 
+const inquirer = require('inquirer');
+
 const generatePage = require('./page-template.js');
 
 
