@@ -183,14 +183,17 @@
 //     console.log('Portfolio complete! Check out index.html to see the output!');
 // })
 
+//IF THIS DOES NOT WORK AT OPENING FOR SOME REASON IF MODULES ARE NOT THERE
+//TYPE npm install TO INSTALL ALL DEPENCIES REQUIRED TO RUN app.js
+
 
 const inquirer = require('inquirer');
 // const { AnimationFrameScheduler } = require('rxjs/internal/scheduler/AnimationFrameScheduler');
 // console.log(inquirer);
 
-const promptUser = () => {
-
-return inquirer.prompt ([
+// const promptUser = () => {
+promptUser = () => {
+return inquirer.prompt ([//return a new promise object which we call it an arbitrary name
         {
             type: 'input',
             name: 'name',
@@ -208,8 +211,9 @@ return inquirer.prompt ([
         }
     ])  
 };
-
-const promptProject = portfolioData => {
+//portfolioData is the object returned from promptUser
+// const promptProject = portfolioData => {
+promptProject = portfolioData => {//this is asynchronous
     if(!portfolioData.projects){
         portfolioData.projects = [];
     }
@@ -255,7 +259,9 @@ Add a New Project
             default: false
         }
     ])
+    //project data is the promised object returned with all the properties we are defining
     .then(projectData => {
+        //push 
         portfolioData.projects.push(projectData);
         if (projectData.confirmAddProject){//if user wanted to add another project
             return promptProject(portfolioData);//promptProject again
@@ -266,9 +272,13 @@ Add a New Project
 };
 
 promptUser()
-    .then(answers => {
+    //when promptUser async func is done then return the answers from
+    //the promise object
+    .then(answers => {//the answers define what is contained in portfolioData
         console.log(answers);
         return answers;
     })
+    //after the object is returned then the answers object is passed in as a parameter
     .then(promptProject)
+    //after promptProject async func is done then return the portfolioData Object
     .then(portfolioData => console.log(portfolioData));
