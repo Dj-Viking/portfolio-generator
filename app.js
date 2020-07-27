@@ -35,7 +35,7 @@
 //   console.log(animal);
 //   return console.log(`${animal} are really cool animals.`);
 // });
-
+//on each index will perform some function
 //this console.logs
 // "Dogs"
 // "Dogs are really cool animals."
