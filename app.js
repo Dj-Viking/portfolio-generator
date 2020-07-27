@@ -1,3 +1,32 @@
+/******* REST AND SPREAD OPERATOR ******* */
+// const originalAnimalArr = ['Dog', 'Cat', 'Horse'];
+// right below is the SPREAD****
+// const workingAnimalArr = [...originalAnimalArr];// copies over but doesn't affect the original
+// workingAnimalArr.push('Bird');
+
+// console.log(workingAnimalArr);//logs ['dog', 'cat', 'horse', 'bird']
+// console.log(originalAnimalArr); //logs ['dog', 'cat', 'horse']
+
+//below demonstrates REST
+// const finishOrder = [
+//     'Speed Racer',
+//     'Flash Marker Jr.',
+//     'Racer X',
+//     'Snake Oiler',
+//     'Trixie',
+//     'Grey Ghost',
+//     'Taejo Togokhan'
+//   ];
+  
+//   const [first, ...theRest ] = finishOrder;
+  
+//   console.log(finishOrder);// logs the array above
+  
+//   console.log(theRest);  //logs everything but the first,
+    //since we created a new array with the rest operator containing 
+    // everything after the first index of finishOrder
+
+
 //const commandLineArgs = process.argv;
 
 //console.log(commandLineArgs);
