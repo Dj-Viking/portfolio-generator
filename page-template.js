@@ -62,7 +62,7 @@ generateProjects = projectsArr => {
                     <p>
                         ${description}
                     </p>
-                    <a href="${link}" class="btn mt-auto">
+                    <a target="_blank" href="${link}" class="btn mt-auto">
                         <i class="fab fa-github mr-2"></i>View Project on GitHub
                     </a>
                 </div>
@@ -85,7 +85,7 @@ generateProjects = projectsArr => {
                     <p>
                         ${description}
                     </p>
-                    <a href="${link}" class="btn mt-auto">
+                    <a target="_blank" href="${link}" class="btn mt-auto">
                         <i class="fab fa-github mr-2"></i>View Project on GitHub
                     </a>
                 </div>
