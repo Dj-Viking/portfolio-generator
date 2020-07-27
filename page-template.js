@@ -140,7 +140,7 @@ module.exports = templateData => {
                     ${header.name}
                 </h1>
                 <nav class="flex-row">
-                    <a href="https://github.com/${header.github}" class="ml-2 my-1 px-2 py-1 bg-secondary text-dark">
+                    <a target="_blank" href="https://github.com/${header.github}" class="ml-2 my-1 px-2 py-1 bg-secondary text-dark">
                         GitHub
                     </a>
                 </nav> 
