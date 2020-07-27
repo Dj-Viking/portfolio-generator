@@ -188,8 +188,12 @@
 
 
 const inquirer = require('inquirer');
+const fs = require('fs');
 // const { AnimationFrameScheduler } = require('rxjs/internal/scheduler/AnimationFrameScheduler');
 // console.log(inquirer);
+
+//assign the anonymous function inside page-template.js to a variable
+const generatePage = require('./page-template.js');
 
 const promptUser = () => {
 
@@ -330,4 +334,15 @@ promptUser()
     //after the object is returned then the answers object is passed in as a parameter
     .then(promptProject)
     //after promptProject async func is done then return the portfolioData Object
-    .then(portfolioData => console.log(portfolioData));
+    .then(portfolioData => {
+        console.log(portfolioData);
+        //assign a variable to the returned multi line string of the generatePage function
+        const pageHTML = generatePage(portfolioData);
+        //write the contents of the pageHTML variable
+        //  to a new created file and if theres an error throw a new error
+        fs.writeFile('./index.html', pageHTML, err =>{
+            if (err) throw new Error(err);
+
+            console.log('Page created! check out index.html in this directory to see.');
+        });
+    });
