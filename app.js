@@ -253,7 +253,13 @@
 
 
 const inquirer = require('inquirer');
-const fs = require('fs');
+//const fs = require('fs');
+//no longer putting require fs here because we are requiring it
+//  in our generate-site.js file already
+
+const generateSite = require('./utils/generate-site.js');
+
+
 // const { AnimationFrameScheduler } = require('rxjs/internal/scheduler/AnimationFrameScheduler');
 // console.log(inquirer);
 
@@ -429,11 +435,11 @@ promptUser()
         return generatePage(portfolioData);
     })
     .then(pageHTML => {
-        return writeFile(pageHTML);
+        return generateSite.writeFile(pageHTML);
     })
     .then(writeFileResponse => {
         console.log(writeFileResponse);
-        return copyFile();
+        return generateSite.copyFile();
     })
     .then(copyFileResponse => {
         console.log(copyFileResponse);
@@ -441,3 +447,4 @@ promptUser()
     .catch(err => {
         console.log(err);
     })
+
