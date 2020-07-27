@@ -27,6 +27,25 @@
     // everything after the first index of finishOrder
 
 
+//below demonstrates .map()
+
+// const animalArr = ['Dogs', 'Cats', 'Horses', 'Birds'];
+
+// const coolAnimalArr = animalArr.map(animal => {
+//   console.log(animal);
+//   return console.log(`${animal} are really cool animals.`);
+// });
+
+//this console.logs
+// "Dogs"
+// "Dogs are really cool animals."
+// "Cats"
+// "Cats are really cool animals."
+// "Horses"
+// "Horses are really cool animals."
+// "Birds"
+// "Birds are really cool animals."
+
 //const commandLineArgs = process.argv;
 
 //console.log(commandLineArgs);

@@ -40,6 +40,19 @@ generateAbout = aboutText => {
     `;
 }
 
+generateProjects = projectsArr => {
+    return `
+            <section class="my-3" id="portfolio">
+                <h2 class="text-dark bg-primary p-2 display-inline-block">
+                    Work
+                </h2>
+                <div class="flex-row justify-space-between">
+                    <!-- leaving this empty as we will dynamically insert project HTML here -->
+                </div>
+            </section>
+    `;
+}
+
 
 //take in the templateData object with all our answers
 module.exports = templateData => {
@@ -91,6 +104,7 @@ module.exports = templateData => {
         </header>
         <main class="container my-5">
             ${generateAbout(about)}
+            ${generateProjects(projects)}
         </main>
         <footer class="container text-center py-3">
             <h3 class="text-dark">
