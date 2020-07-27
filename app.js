@@ -27,7 +27,24 @@
     // everything after the first index of finishOrder
 
 
-//below demonstrates .map()
+/************* BELOW DEMONSTRATES .filter() ********* */
+// const ageArr = [21, 58, 8, 16, 106, 83, 42, 2, 0];
+
+// const over21Arr = ageArr.filter(age => {
+//   if (age >= 21) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// });
+// // => [21, 58, 106, 83, 42];
+
+// console.log(ageArr); //prints [21, 58, 8, 16, 106, 83, 42, 2, 0]
+
+// console.log(over21Arr); //prints [21, 58, 106, 83, 42]
+
+
+//below demonstrates .map()***********************
 
 // const animalArr = ['Dogs', 'Cats', 'Horses', 'Birds'];
 
