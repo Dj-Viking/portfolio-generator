@@ -387,27 +387,57 @@ Add a New Project
     });
 };
 
-promptUser()
-    //when promptUser async func is done then return the answers from
-    //the promise object
-    //this .then() isn't entirely necessary to pass the object into promptProject()
-    //  but I still like to have it for the sake of seeing every step happening for now
-    .then(answers => {//the answers define what is contained in portfolioData
-        console.log(answers);
-        return answers;
-    })
-    //after the object is returned then the answers object is passed in as a parameter
-    .then(promptProject)
-    //after promptProject async func is done then return the portfolioData Object
-    .then(portfolioData => {
-        console.log(portfolioData);
-        //assign a variable to the returned multi line string of the generatePage function
-        const pageHTML = generatePage(portfolioData);
-        //write the contents of the pageHTML variable
-        //  to a new created file and if theres an error throw a new error
-        fs.writeFile('./index.html', pageHTML, err =>{
-            if (err) throw new Error(err);
+//  this works great but lets refactor this below! :) 
+// promptUser()
+//     //when promptUser async func is done then return the answers from
+//     //the promise object
+//     //this .then() isn't entirely necessary to pass the object into promptProject()
+//     //  but I still like to have it for the sake of seeing every step happening for now
+//     .then(answers => {//the answers define what is contained in portfolioData
+//         console.log(answers);
+//         return answers;
+//     })
+//     //after the object is returned then the answers object is passed in as a parameter
+//     .then(promptProject)
+//     //after promptProject async func is done then return the portfolioData Object
+//     .then(portfolioData => {
+//         console.log(portfolioData);
+//         //assign a variable to the returned multi line string of the generatePage function
+//         const pageHTML = generatePage(portfolioData);
+//         //write the contents of the pageHTML variable
+//         //  to a new created file and if theres an error throw a new error
+//         fs.writeFile('./dist/index.html', pageHTML, err =>{
+//             if (err) throw new Error(err);
 
-            console.log('Page created! check out index.html in this directory to see.');
-        });
-    });
+//             console.log('Page created! check out index.html in this directory to see.');
+        
+//             fs.copyFile('./style.css', './dist/style.css', err => {
+//                 if (err){
+//                     console.log(err)
+//                     return;
+//                 }
+//                 console.log('Style sheet copied successfully.');
+//             });
+//         });
+//     });
+
+//starting the refactor of the promptUser() function above 
+//  creating our own Promises
+promptUser()
+    .then(promptProject)
+    .then(portfolioData => {
+        return generatePage(portfolioData);
+    })
+    .then(pageHTML => {
+        return writeFile(pageHTML);
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse);
+        return copyFile();
+    })
+    .then(copyFileResponse => {
+        console.log(copyFileResponse);
+    })
+    .catch(err => {
+        console.log(err);
+    })
